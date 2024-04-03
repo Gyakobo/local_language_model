@@ -26,7 +26,7 @@ print(data[:1000]) # the 1000 characters we looked at earlier will look like thi
 
 # Let's now split up the data into train and validation sets
 # This will help us understand to what extent our model is overfitting
-n = int(0.9 * len(data)) # first 90% will be train, rest val
+n = int(0.9 * len(data)) # the first 90% will be train, rest val
 train_data = data[:n]
 val_data = data[n:]
 
