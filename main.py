@@ -55,6 +55,7 @@ def get_batch(split):
     return x, y
 
 xb, yb = get_batch('train')
+'''
 print('inputs:')
 print(xb.shape)
 print(xb)
@@ -62,9 +63,12 @@ print('target:')
 print(yb.shape)
 print(yb)
 print('-----')
+'''
 
 from bigramlm import *
 m = BigramLanguageModel(vocab_size)
 logits, loss = m(xb, yb)
 print(logits.shape)
 print(loss)
+
+print(decode(m.generate(idx=torch.zeros((1, 1), dtype=torch.long), max_new_tokens=100)[0].tolist()))
