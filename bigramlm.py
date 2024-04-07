@@ -1,4 +1,4 @@
-from Head import *
+from MultiHeadAttention import *
 
 class BigramLanguageModel(nn.Module):
     def __init__(self, vocab_size):
@@ -6,7 +6,7 @@ class BigramLanguageModel(nn.Module):
         # Each token reads off the logits for next token from a lookup table 
         self.token_embedding_table = nn.Embedding(vocab_size, n_embd)
         self.position_embedding_table = nn.Embedding(block_size, n_embd)
-        self.sa_head = Head(n_embd)
+        self.sa_heads = MultiHeadAttention(4, n_embd//4)  
         self.lm_head = nn.Linear(n_embd, vocab_size)
 
     def forward(self, idx, targets=None):
@@ -16,7 +16,7 @@ class BigramLanguageModel(nn.Module):
         tok_emb = self.token_embedding_table(idx) # (B, T, C)
         pos_emb = self.position_embedding_table(torch.arange(T, device=device))
         x = tok_emb + pos_emb
-        x = self.sa_head(x)
+        x = self.sa_heads(x)
         logits = self.lm_head(x) # (B, T, vocab_size)
 
         if targets is None:
