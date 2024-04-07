@@ -1,11 +1,4 @@
-import torch
-import torch.nn as nn
-from torch.nn import functional as F
-torch.manual_seed(1337)
-
-n_embd = 32
-block_size = 8
-device = 'cude' if torch.cuda.is_available() else 'cpu'
+from header import *
 
 class Head(nn.Module):
     def __init__(self, head_size):
@@ -22,7 +15,7 @@ class Head(nn.Module):
 
         # Compute attention score ("affinities")
         wei = q @ k.transpose(-2, -1) * C**-0.5
-        wei = wei.masked_fill(self.tril[:T, :T] == 0, float('inf'))
+        wei = wei.masked_fill(self.tril[:T, :T] == 0, float('-inf'))
         wei = F.softmax(wei, dim=-1)
 
         # Perform the weightened aggregation of the values

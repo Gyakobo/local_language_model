@@ -1,14 +1,12 @@
 # All the imports and global variables
-import torch
-import torch.nn as nn
-from torch.nn import functional as F
+from bigramlm import *
 
 # Hyperparameters
 batch_size = 32 # how many independent sequences will we process in parallel?
 block_size = 8 # what is the maximum context length for predictions?
 max_iters = 3000
 eval_interval = 300
-learning_rate = 1e-2
+learning_rate = 1e-3
 device = 'cude' if torch.cuda.is_available() else 'cpu'
 eval_iters = 200
 # ------
@@ -95,7 +93,6 @@ print(yb)
 print('-----')
 '''
 
-from bigramlm import *
 model = BigramLanguageModel(vocab_size)
 m = model.to(device)
 
@@ -121,16 +118,4 @@ for iter in range(max_iters):
 context = torch.zeros((1, 1), dtype=torch.long, device=device)
 print(decode(m.generate(context, max_new_tokens=500)[0].tolist()))
 
-'''
-# Consider the following toy example:
-B, T, C = 4, 8, 2 # batch, time, channels
-x = torch.randn(B, T, C)
-x.shape
-
-xbow = torch.zeros((B, T, C))
-for b in range(B):
-    for t in range(T):
-        xprev = x[b, :t+1] # (t, C)
-        xbow[b, t] = torch.mean(xprev, 0)
-'''
 

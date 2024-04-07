@@ -1,12 +1,4 @@
-from Head import Head
-import torch
-import torch.nn as nn
-from torch.nn import functional as F
-torch.manual_seed(1337)
-
-n_embd = 32
-block_size = 8
-device = 'cude' if torch.cuda.is_available() else 'cpu'
+from Head import *
 
 class BigramLanguageModel(nn.Module):
     def __init__(self, vocab_size):
@@ -39,8 +31,10 @@ class BigramLanguageModel(nn.Module):
 
     def generate(self, idx, max_new_tokens):
         for _ in range(max_new_tokens):
+            idx_cond = idx[:, -block_size:]
+
             # get the predictions
-            logits, loss = self(idx)
+            logits, loss = self(idx_cond)
 
             # focus only on the last time step
             logits = logits[:, -1, :]
