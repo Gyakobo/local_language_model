@@ -1,18 +1,19 @@
 # All the imports and global variables
 import torch
 import torch.nn as nn
-import torch.nn import functional as F
+from torch.nn import functional as F
 
 # Hyperparameters
-bactch_size = 32 # how many independent sequences will we process in parallel?
+batch_size = 32 # how many independent sequences will we process in parallel?
 block_size = 8 # what is the maximum context length for predictions?
 max_iters = 3000
 eval_interval = 300
 learning_rate = 1e-2
 device = 'cude' if torch.cuda.is_available() else 'cpu'
 eval_iters = 200
-torch.manual_seed(1337) # Random number coefficient
 # ------
+
+torch.manual_seed(1337) # Random number coefficient
 
 # Read it in to inspect it
 with open('input.txt', 'r', encoding ='utf-8') as f:
@@ -99,27 +100,37 @@ model = BigramLanguageModel(vocab_size)
 m = model.to(device)
 
 # Create a PyTorch optimizer
-optimizer = torch.optim.AdamW(modelparameters(), lr = learning_rate)
+optimizer = torch.optim.AdamW(model.parameters(), lr = learning_rate)
 
+for iter in range(max_iters):
+    # every once in a while evaluate the loss on train and val sets
+    if iter % eval_interval == 0:
+        losses = estimate_loss()
+        print(f"set {iter}: train loss {losses['train']:.4f}, val loss {losses['val']:.4f}")
 
-# Depricated Code ----
-logits, loss = m(xb, yb)
-print(logits.shape)
-print(loss)
-
-# print(decode(m.generate(idx=torch.zeros((1, 1), dtype=torch.long), max_new_tokens=100)[0].tolist()))
-
-batch_size = 32
-for steps in range(10000):
     # sample a batch of data
     xb, yb = get_batch('train')
 
     # evaluate the loss
-    logits, loss = m(xb, yb)
+    logits, loss = model(xb, yb)
     optimizer.zero_grad(set_to_none=True)
     loss.backward()
     optimizer.step()
 
-    print(loss.item())
+# generate from the model
+context = torch.zeros((1, 1), dtype=torch.long, device=device)
+print(decode(m.generate(context, max_new_tokens=500)[0].tolist()))
 
-print(decode(m.generate(idx=torch.zeros((1, 1), dtype=torch.long), max_new_tokens=500)[0].tolist()))
+'''
+# Consider the following toy example:
+B, T, C = 4, 8, 2 # batch, time, channels
+x = torch.randn(B, T, C)
+x.shape
+
+xbow = torch.zeros((B, T, C))
+for b in range(B):
+    for t in range(T):
+        xprev = x[b, :t+1] # (t, C)
+        xbow[b, t] = torch.mean(xprev, 0)
+'''
+
