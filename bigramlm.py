@@ -1,5 +1,5 @@
 from MultiHeadAttention import *
-from FeedFoward import *  
+from FeedForward import *  
 
 class BigramLanguageModel(nn.Module):
     def __init__(self, vocab_size):
@@ -8,7 +8,7 @@ class BigramLanguageModel(nn.Module):
         self.token_embedding_table = nn.Embedding(vocab_size, n_embd)
         self.position_embedding_table = nn.Embedding(block_size, n_embd)
         self.sa_heads = MultiHeadAttention(4, n_embd//4)  
-        self.ffwd = FeedFoward(n_embd)
+        self.ffwd = FeedForward(n_embd)
         self.lm_head = nn.Linear(n_embd, vocab_size)
 
     def forward(self, idx, targets=None):
