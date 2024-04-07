@@ -29,6 +29,7 @@ class BigramLanguageModel(nn.Module):
 
         if targets is None:
             loss = None 
+
         else:
             B, T, C = logits.shape
             logits = logits.view(B*T, C)
