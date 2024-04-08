@@ -24,12 +24,12 @@ conda --version
 ```
 
 ## Creating a PyTorch virtual environment using Anaconda
-1. Create a New Environment: Use the conda create command to create a new virtual environment. You can specify the Python version and any additional packages you need. For PyTorch, you can also specify the version of PyTorch you want to install. For example:
+1. **Create a New Environment**: Use the conda create command to create a new virtual environment. You can specify the Python version and any additional packages you need. For PyTorch, you can also specify the version of PyTorch you want to install. For example:
 
 ```bash
 conda create -n myenv python=3.8
 ```
-2. Activate the Environment: Once the environment is created, activate it using:
+2. **Activate the Environment**: Once the environment is created, activate it using:
 
 ```bash
 conda activate myenv 
@@ -41,6 +41,9 @@ conda env list                      # Lists all the env(s)
 conda remove --name ENV_NAME --all  # Removes the select env
 ```
 
+3. **Install PyTorch**: Once the environment is activated, you can install PyTorch using the conda install command. You should specify the appropriate version of PyTorch depending on your requirements. For example, to install PyTorch with CUDA support for GPU acceleration:
 
-
+```bash
+conda install pytorch torchvision torchaudio cudatoolkit=11.2 -c pytorch 
+```
 
