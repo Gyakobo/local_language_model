@@ -3,4 +3,25 @@
 
 > It's most convenient if the following program is run using a GPU via conda Pytorch
 
+### Installing and setting up Anaconda
+Using wget:
+```Bash
+wget https://repo.anaconda.com/archive/Anaconda3-2021.11-Linux-x86_64.sh
+chmod +x Anaconda3-2021.11-Linux-x86_64.sh
+./Anaconda3-2021.11-Linux-x86_64.sh
+```
+
+Using curl:
+```Bash
+curl -O https://repo.anaconda.com/archive/Anaconda3-2021.11-Linux-x86_64.sh
+chmod +x Anaconda3-2021.11-Linux-x86_64.sh
+./Anaconda3-2021.11-Linux-x86_64.sh
+```
+
+Verify installation:
+```Bash
+conda --version
+
+```
+
 
