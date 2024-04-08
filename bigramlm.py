@@ -7,19 +7,9 @@ class BigramLanguageModel(nn.Module):
         self.token_embedding_table = nn.Embedding(vocab_size, n_embd)
         self.position_embedding_table = nn.Embedding(block_size, n_embd)
 
-        self.blocks = nn.Sequential(
-            Block(n_embd, n_head=4),
-            Block(n_embd, n_head=4),
-            Block(n_embd, n_head=4),
-        )
-
+        self.blocks = nn.Sequential(*[Block(n_embd, n_head=n_head) for _ in range(n_layer)])
+        self.ln_f = nn.LayerNorm(n_embd) # final layer norm
         self.lm_head = nn.Linear(n_embd, vocab_size)
-
-        '''
-        self.sa_heads = MultiHeadAttention(4, n_embd//4)  
-        self.ffwd = FeedForward(n_embd)
-        self.lm_head = nn.Linear(n_embd, vocab_size)
-        '''
 
     def forward(self, idx, targets=None):
         B, T = idx.shape
