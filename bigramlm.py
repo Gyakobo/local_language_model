@@ -19,11 +19,11 @@ class BigramLanguageModel(nn.Module):
         pos_emb = self.position_embedding_table(torch.arange(T, device=device))
         x = tok_emb + pos_emb
         x = self.blocks(x)
+        x = self.ln_f(x)
         logits = self.lm_head(x) # (B, T, vocab_size)
 
         if targets is None:
             loss = None 
-
         else:
             B, T, C = logits.shape
             logits = logits.view(B*T, C)
