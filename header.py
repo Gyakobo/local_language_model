@@ -17,6 +17,6 @@ n_head = 6
 n_layer = 6
 dropout = 0.2
 
-device = 'cude' if torch.cuda.is_available() else 'cpu'
+device = 'cuda' if torch.cuda.is_available() else 'cpu'
 
 print(f"Computing on: {device}")
