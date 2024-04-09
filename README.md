@@ -57,7 +57,7 @@ conda install pytorch torchvision torchaudio cudatoolkit -c pytorch
    2. *CUDA Toolkit:* You need to have the CUDA Toolkit installed on your system. This includes CUDA drivers and the CUDA runtime library.
    3. *PyTorch with CUDA support:* You need to have PyTorch installed with CUDA support. You can typically install the appropriate version of PyTorch using pip or conda, ensuring it matches the CUDA version installed on your system.
 
-    > Here's a basic outline of the steps you might take to ensure torch.cuda.is_available() returns <span color="green">True</span>:
+    > Here's a basic outline of the steps you might take to ensure torch.cuda.is_available() returns <span style=" color: green">True</span>:
 
     1. *Check your GPU:* Ensure you have an Nvidia GPU installed on your system.
     2. *Install CUDA Toolkit:* Download and install the CUDA Toolkit from Nvidia's website. Make sure to follow the installation instructions carefully.
