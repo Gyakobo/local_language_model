@@ -72,4 +72,12 @@ conda install pytorch torchvision torchaudio cudatoolkit -c pytorch
       print(torch.cuda.is_available())
       ```
 
+   * In the case scenario that you don't have Cuda running please try running the following command:
+   ```bash
+   sudo apt-get install nvidia-cuda-toolkit
+   ```
+   > Note: To check the CUDA version run this command:
+   ```bash
+   nvcc --version
+   ```
 
