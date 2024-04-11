@@ -1,0 +1,30 @@
+Computing on: cpu
+
+ !$&',-.3:;?ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz
+65
+torch.Size([1115394]) torch.int64
+set 0: train loss 4.3613, val loss 4.3670
+set 500: train loss 2.0251, val loss 2.1290
+set 1000: train loss 1.8833, val loss 2.0454
+set 1500: train loss 1.8461, val loss 1.9996
+set 2000: train loss 1.7808, val loss 1.9375
+set 2500: train loss 1.7411, val loss 1.9255
+set 3000: train loss 1.7936, val loss 1.9239
+set 3500: train loss 1.7372, val loss 1.9120
+set 4000: train loss 1.7510, val loss 1.8932
+set 4500: train loss 1.6979, val loss 1.9076
+
+With alazes, I chipest,
+With these to his high; and agreet, how last say's shucce shed marry me fairf, are his frentless: but never turn'd;
+That the suries rude thee thus says we bettemaid anoath and words!
+Where is sweedy, I should beeem tarns this first,
+Wing shall glovedy;
+And then ieve.
+
+QUEEN MARGAREGORY:
+Day, only virtue; and's sight?
+For how a right his Aim, if if and to you barried eantremes?
+
+QUEEN MARGARET:
+O, put that. Kindress, Forbough this then reless, when 'scurse all
+Caceanant an
