@@ -53,7 +53,7 @@ conda install pytorch torchvision torchaudio cudatoolkit -c pytorch
 ```
 4. **Verifying Cuda is working:**
 
-> Note: Nvidia with the CUDA drivers just do not work well with Linux, thus I'd be moving towards to AMD
+> Note: Nvidia with the CUDA drivers just do not work well with Linux, thus I'd be moving towards to AMD on my laptop for better results
 
    1. After all that installations you need to cross-check whether CUDA is available. CUDA is a parallel computing platform and application programming interface (API) model created by Nvidia. In order for torch.cuda.is_available() to return True, you need to meet the following requirements:
 
