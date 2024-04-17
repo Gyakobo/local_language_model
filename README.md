@@ -5,6 +5,12 @@
 
 > Note: Nvidia with the CUDA drivers just do not work well with Linux, thus I'd be moving towards to AMD on my laptop for better results. So far also a dissapointment. Most likely I'd just move on with processing everything with the CPU. 
 
+> In the end what really helped out was this command:
+```bash
+# Upgrade torch from 1.12 to 1.13
+sudo pip3 install torch==1.13.0
+```
+
 ## Installing and setting up Anaconda. 
 Using <span style="color:yellow">wget</span> *(You might want to try it with 'sudo')*:
 ```bash
