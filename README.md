@@ -3,6 +3,8 @@
 
 > It's most convenient if the following program is run using a GPU via conda Pytorch
 
+> Note: Nvidia with the CUDA drivers just do not work well with Linux, thus I'd be moving towards to AMD on my laptop for better results. So far also a dissapointment.
+
 ## Installing and setting up Anaconda. 
 Using <span style="color:yellow">wget</span> *(You might want to try it with 'sudo')*:
 ```bash
