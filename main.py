@@ -30,6 +30,8 @@ print(data.shape, data.dtype)
 
 # Let's now split up the data into train and validation sets
 # This will help us understand to what extent our model is overfitting
+
+input_value = "Who are you?"
 n = int(0.9 * len(data)) # the first 90% will be train, rest val
 train_data = data[:n]
 val_data = data[n:]
