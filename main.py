@@ -5,7 +5,8 @@ from torch.nn import functional as F
 # hyperparameters
 batch_size = 64 # how many independent sequences will we process in parallel?
 block_size = 256 # what is the maximum context length for predictions?
-max_iters = 5000
+# max_iters = 5000
+max_iters = 1000
 eval_interval = 500
 learning_rate = 3e-4
 device = 'cuda' if torch.cuda.is_available() else 'cpu'
@@ -34,9 +35,11 @@ decode = lambda l: ''.join([itos[i] for i in l]) # decoder: take a list of integ
 
 # Train and test splits
 data = torch.tensor(encode(text), dtype=torch.long)
-n = int(0.9*len(data)) # first 90% will be train, rest val
+# n = int(0.9*len(data)) # first 90% will be train, rest val
+n = int(len(data)) # first 90% will be train, rest val
 train_data = data[:n]
-val_data = data[n:]
+# val_data = data[n:]
+val_data = "Who are you?"
 
 # data loading
 def get_batch(split):
@@ -195,6 +198,14 @@ class GPTLanguageModel(nn.Module):
             # append sampled index to the running sequence
             idx = torch.cat((idx, idx_next), dim=1) # (B, T+1)
         return idx
+
+# Parameters to save and load
+'''
+> Important
+* model     (GPTLanguageModel object) 
+* m         (model.to(device)) 
+* optimizer (torch.optim.AdamW) - mayhaps most important aspect
+'''
 
 model = GPTLanguageModel()
 m = model.to(device)
