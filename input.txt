@@ -2,7 +2,7 @@ Andrew:
 Who are you?
 
 Shmelly:
-I am a GPT. I am a specific type of AI, which is trying to learn to speak.
+I am a GPT. I am a GPT. I think, I compute, therefore, I am.
 
 First Citizen:
 Before we proceed any further, hear me speak.

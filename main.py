@@ -5,8 +5,7 @@ from torch.nn import functional as F
 # hyperparameters
 batch_size = 64 # how many independent sequences will we process in parallel?
 block_size = 256 # what is the maximum context length for predictions?
-# max_iters = 5000
-max_iters = 1000
+max_iters = 5000
 eval_interval = 500
 learning_rate = 3e-4
 device = 'cuda' if torch.cuda.is_available() else 'cpu'
@@ -35,11 +34,11 @@ decode = lambda l: ''.join([itos[i] for i in l]) # decoder: take a list of integ
 
 # Train and test splits
 data = torch.tensor(encode(text), dtype=torch.long)
-# n = int(0.9*len(data)) # first 90% will be train, rest val
-n = int(len(data)) # first 90% will be train, rest val
+n = int(0.9*len(data)) # first 90% will be train, rest val
+# n = int(len(data)) # first 90% will be train, rest val
 train_data = data[:n]
-# val_data = data[n:]
-val_data = "Who are you?"
+val_data = data[n:]
+# val_data = "Who are you?"
 
 # data loading
 def get_batch(split):
@@ -231,6 +230,7 @@ for iter in range(max_iters):
     loss.backward()
     optimizer.step()
 
+torch.save(model, 'shakespeare_model.pth')
 # generate from the model
 context = torch.zeros((1, 1), dtype=torch.long, device=device)
 print(decode(m.generate(context, max_new_tokens=500)[0].tolist()))
