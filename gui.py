@@ -47,6 +47,7 @@ def load_model(folder_path):
         except ValueError:
             print(colors.RED + "Invalid choice. Please enter a valid number." + colors.RESET)
 
+'''
 def main():
     folder_path = input("Enter the folder path: ")
     if not os.path.exists(folder_path):
@@ -64,4 +65,5 @@ def main():
 
 if  __name__ == "__main__":
     main()
+'''
 

@@ -1,6 +1,7 @@
 import torch
 import torch.nn as nn
 from torch.nn import functional as F
+from gui import *
 
 # hyperparameters
 batch_size = 64 # how many independent sequences will we process in parallel?
@@ -9,7 +10,7 @@ max_iters = 5000
 eval_interval = 500
 learning_rate = 3e-4
 device = 'cuda' if torch.cuda.is_available() else 'cpu'
-print(f"Using the {device}")
+print(colors.CYAN + f"Using the {device}" + colors.RESET)
 eval_iters = 200
 n_embd = 384
 n_head = 6
@@ -50,6 +51,7 @@ def get_batch(split):
     x, y = x.to(device), y.to(device)
     return x, y
 
+'''
 @torch.no_grad()
 def estimate_loss():
     out = {}
@@ -63,6 +65,7 @@ def estimate_loss():
         out[split] = losses.mean()
     model.train()
     return out
+'''
 
 class Head(nn.Module):
     """ one head of self-attention """
@@ -206,32 +209,77 @@ class GPTLanguageModel(nn.Module):
 * optimizer (torch.optim.AdamW) - mayhaps most important aspect
 '''
 
-model = GPTLanguageModel()
-m = model.to(device)
-# print the number of parameters in the model
-print(sum(p.numel() for p in m.parameters())/1e6, 'M parameters')
+model = None 
 
-# create a PyTorch optimizer
-optimizer = torch.optim.AdamW(model.parameters(), lr=learning_rate)
+def main():
+    choice = input("Would you like to load a pretrained model([y]/n): ")
 
-for iter in range(max_iters):
+    if choice == '' or choice == 'y':
+        folder_path = input("Enter the folder path: ")
+        print("")
+        if not os.path.exists(folder_path):
+            print(colors.RED + "Folder doesn't exist." + colors.RESET)
+            return
+ 
+        if not os.listdir(folder_path):
+            print(colors.RED + "Folder is empty." + colors.RESET)
+            return
+ 
+        model_path = load_model(folder_path)
+        if model_path:
+            print(colors.BLUE + f"Loading model from {model_path}" + colors.RESET)
+            # Load the selected model
+    else:
+        @torch.no_grad()
+        def estimate_loss():
+            out = {}
+            model.eval()
+            for split in ['train', 'val']:
+                losses = torch.zeros(eval_iters)
+                for k in range(eval_iters):
+                    X, Y = get_batch(split)
+                    logits, loss = model(X, Y)
+                    losses[k] = loss.item()
+                out[split] = losses.mean()
+            model.train()
+            return out
+        
+        model = GPTLanguageModel()
+        m = model.to(device)
+        # print the number of parameters in the model
+        print("")
+        print(colors.YELLOW + str(sum(p.numel() for p in m.parameters())/1e6) + ' M parameters' + colors.RESET, end="\n\n")
 
-    # every once in a while evaluate the loss on train and val sets
-    if iter % eval_interval == 0 or iter == max_iters - 1:
-        losses = estimate_loss()
-        print(f"step {iter}: train loss {losses['train']:.4f}, val loss {losses['val']:.4f}")
+        # create a PyTorch optimizer
+        optimizer = torch.optim.AdamW(model.parameters(), lr=learning_rate)
 
-    # sample a batch of data
-    xb, yb = get_batch('train')
+        name_of_file = input("Please name the file: ")
+        
+        for iter in range(max_iters):
+            # every once in a while evaluate the loss on train and val sets
+            if iter % eval_interval == 0 or iter == max_iters - 1:
+                losses = estimate_loss()
+                print(f"step {iter}: train loss {losses['train']:.4f}, val loss {losses['val']:.4f}")
+        
+            # sample a batch of data
+            xb, yb = get_batch('train')
+        
+            # evaluate the loss
+            logits, loss = model(xb, yb)
+            optimizer.zero_grad(set_to_none=True)
+            loss.backward()
+            optimizer.step()
 
-    # evaluate the loss
-    logits, loss = model(xb, yb)
-    optimizer.zero_grad(set_to_none=True)
-    loss.backward()
-    optimizer.step()
+        torch.save(model, f"./models/{name_of_file}.pth")
 
-torch.save(model, 'shakespeare_model.pth')
-# generate from the model
-context = torch.zeros((1, 1), dtype=torch.long, device=device)
-print(decode(m.generate(context, max_new_tokens=500)[0].tolist()))
-#open('more.txt', 'w').write(decode(m.generate(context, max_new_tokens=10000)[0].tolist()))
+        # generate from the model
+        context = torch.zeros((1, 1), dtype=torch.long, device=device)
+        print(decode(m.generate(context, max_new_tokens=500)[0].tolist()))
+        #open('more.txt', 'w').write(decode(m.generate(context, max_new_tokens=10000)[0].tolist()))
+
+main()
+
+
+
+
+
