@@ -1,3 +1,9 @@
+Andrew:
+Who are you?
+
+Shmelly:
+I am a GPT. I am a specific type of AI, which is trying to learn to speak.
+
 First Citizen:
 Before we proceed any further, hear me speak.
 
