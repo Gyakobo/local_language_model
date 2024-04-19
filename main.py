@@ -229,6 +229,14 @@ def main():
         if model_path:
             print(colors.BLUE + f"Loading model from {model_path}" + colors.RESET)
             # Load the selected model
+
+            # Load the entire model
+            model = torch.load(model_path)
+            m = model.to(device)
+        
+            context = torch.zeros((1, 1), dtype=torch.long, device=device)
+            print(decode(m.generate(context, max_new_tokens=500)[0].tolist()))
+    
     else:
         @torch.no_grad()
         def estimate_loss():
