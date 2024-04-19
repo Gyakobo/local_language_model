@@ -34,12 +34,24 @@ encode = lambda s: [stoi[c] for c in s] # encoder: take a string, output a list 
 decode = lambda l: ''.join([itos[i] for i in l]) # decoder: take a list of integers, output a string
 
 # Train and test splits
+
 data = torch.tensor(encode(text), dtype=torch.long)
+
 n = int(0.9*len(data)) # first 90% will be train, rest val
 # n = int(len(data)) # first 90% will be train, rest val
 train_data = data[:n]
-val_data = data[n:]
-# val_data = "Who are you?"
+# val_data = data[n:]
+input_data = """
+    Who are you?
+    Where are you from?
+    What are you exactly?
+    Who made you?
+    What is the meaning of life?
+    What is the meaning of artificial life?
+    Do you consider yourself alive?
+    Do you consider yourself to feel or empathize?
+"""
+val_data = torch.tensor(encode(input_data), dtype=torch.long)
 
 # data loading
 def get_batch(split):
@@ -50,22 +62,6 @@ def get_batch(split):
     y = torch.stack([data[i+1:i+block_size+1] for i in ix])
     x, y = x.to(device), y.to(device)
     return x, y
-
-'''
-@torch.no_grad()
-def estimate_loss():
-    out = {}
-    model.eval()
-    for split in ['train', 'val']:
-        losses = torch.zeros(eval_iters)
-        for k in range(eval_iters):
-            X, Y = get_batch(split)
-            logits, loss = model(X, Y)
-            losses[k] = loss.item()
-        out[split] = losses.mean()
-    model.train()
-    return out
-'''
 
 class Head(nn.Module):
     """ one head of self-attention """
