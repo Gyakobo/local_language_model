@@ -252,6 +252,7 @@ def main():
         model = GPTLanguageModel()
         m = model.to(device)
         # print the number of parameters in the model
+
         print("")
         print(colors.YELLOW + str(sum(p.numel() for p in m.parameters())/1e6) + ' M parameters' + colors.RESET, end="\n\n")
 
