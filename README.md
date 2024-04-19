@@ -1,11 +1,11 @@
 # Making a GPT (Generative Pretrained Transformer)
 > In this project we'll basically try to model a character sequence of words. This work was mostly if not full inspired by the following publication [website](https://arxiv.org/pdf/1706.03762.pdf)
 
-> It's most convenient if the following program is run using a GPU via conda Pytorch
+> It's most convenient if the following program is run using a GPU via conda Pytorch. I personally am running an EVGA 3070 Ti *(Needless to say, by the time you, my dear reader, are reading this this GPU might have been discontinued given that EVGA halted its GPU production)*.
 
 > Note: Nvidia with the CUDA drivers just do not work well with Linux, thus I'd be moving towards to AMD on my laptop for better results. So far also a dissapointment. Most likely I'd just move on with processing everything with the CPU. 
 
-> In the end what really helped out was this command:
+> In the end what really helped me out was this command:
 ```bash
 # Upgrade torch from 1.12 to 1.13
 sudo pip3 install torch==1.13.0
