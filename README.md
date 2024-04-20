@@ -3,7 +3,7 @@
 
 > It's most convenient if the following program is run using a GPU via conda Pytorch. I personally am running an EVGA 3070 Ti *(Needless to say, by the time you, my dear reader, are reading this this GPU might have been discontinued given that EVGA halted its GPU production)*.
 
-> Note: Nvidia with the CUDA drivers just do not work well with Linux, thus I'd be moving towards to AMD on my laptop for better results. So far also a dissapointment. Most likely I'd just move on with processing everything with the CPU. 
+> Note: Nvidia with the <span style="color:yellow">CUDA drivers</span> just do not work well with Linux, thus I'd be moving towards to AMD on my laptop for better results. So far also a dissapointment. Most likely I'd just move on with processing everything with the CPU. 
 
 > In the end what really helped me out was this command:
 ```bash
