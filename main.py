@@ -21,7 +21,8 @@ dropout = 0.2
 torch.manual_seed(1337)
 
 # wget https://raw.githubusercontent.com/karpathy/char-rnn/master/data/tinyshakespeare/input.txt
-with open('input.txt', 'r', encoding='utf-8') as f:
+# with open('input.txt', 'r', encoding='utf-8') as f:
+with open('./scripts/my_little_pony.txt', 'r', encoding='utf-8') as f:
     text = f.read()
 
 # here are all the unique characters that occur in this text
@@ -41,7 +42,7 @@ n = int(0.9*len(data)) # first 90% will be train, rest val
 
 # n = int(len(data)) # first 90% will be train, rest val
 train_data = data[:n]
-# val_data = data[n:]
+val_data = data[n:]
 input_data = """
     Who are you?
     Where are you from?
@@ -52,7 +53,7 @@ input_data = """
     Do you consider yourself alive?
     Do you consider yourself to feel or empathize?
 """
-val_data = torch.tensor(encode(input_data), dtype=torch.long)
+# val_data = torch.tensor(encode(input_data), dtype=torch.long)
 
 # data loading
 def get_batch(split):
@@ -230,7 +231,8 @@ def main():
             # Load the entire model
             model = torch.load(model_path)
             m = model.to(device)
-        
+
+            # I need to go through the concept once more
             context = torch.zeros((1, 1), dtype=torch.long, device=device)
             print(decode(m.generate(context, max_new_tokens=500)[0].tolist()))
     
