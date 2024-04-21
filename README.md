@@ -65,19 +65,19 @@ conda install pytorch torchvision torchaudio cudatoolkit -c pytorch
 
    1. After all that installations you need to cross-check whether CUDA is available. CUDA is a parallel computing platform and application programming interface (API) model created by Nvidia. In order for torch.cuda.is_available() to return True, you need to meet the following requirements:
 
-      * *Nvidia GPU:* You need to have a Nvidia GPU installed on your system.
-      * *CUDA Toolkit:* You need to have the CUDA Toolkit installed on your system. This includes CUDA drivers and the CUDA runtime library.
-      * *PyTorch with CUDA support:* You need to have PyTorch installed with CUDA support. You can typically install the appropriate version of PyTorch using pip or conda, ensuring it matches the CUDA version installed on your system.
+      * **Nvidia GPU:** You need to have a Nvidia GPU installed on your system.
+      * **CUDA Toolkit:** You need to have the CUDA Toolkit installed on your system. This includes CUDA drivers and the CUDA runtime library.
+      * **PyTorch with CUDA support:** You need to have PyTorch installed with CUDA support. You can typically install the appropriate version of PyTorch using pip or conda, ensuring it matches the CUDA version installed on your system.
  
        > Here's a basic outline of the steps you might take to ensure torch.cuda.is_available() returns <span style=" color: green">**True**</span>:
  
-      * *Check your GPU:* Ensure you have an Nvidia GPU installed on your system.
-      * *Install CUDA Toolkit:* Download and install the CUDA Toolkit from Nvidia's website. Make sure to follow the installation instructions carefully.
-      * *Install PyTorch with CUDA support:* Install PyTorch with CUDA support. If you're using pip, you might use a command like:
+      * **Check your GPU:** Ensure you have an Nvidia GPU installed on your system.
+      * **Install CUDA Toolkit:** Download and install the CUDA Toolkit from Nvidia's website. Make sure to follow the installation instructions carefully.
+      * **Install PyTorch with CUDA support:** Install PyTorch with CUDA support. If you're using pip, you might use a command like:
       ```bash
       pip install torch torchvision torchaudio
       ```
-      * *Verify installation:* Once everything is installed, you can check if CUDA is available in Python using: 
+      * **Verify installation:** Once everything is installed, you can check if CUDA is available in Python using: 
       ```python
       import torch
       print(torch.cuda.is_available())
