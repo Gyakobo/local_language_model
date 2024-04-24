@@ -101,3 +101,4 @@ Password for 'https://USERNAME@github.com': <PASSWORD>
 ```
 
 > Note: Major update: This project shall be put on a Python Flask server and shared online
+* Ideally it should be a server which should be able to handle API requests to other local servers. This is done in order to keep the proprietary nature of the project and for security reasons just in case a server gets compromised
