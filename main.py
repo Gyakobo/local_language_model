@@ -37,10 +37,13 @@ decode = lambda l: ''.join([itos[i] for i in l]) # decoder: take a list of integ
 # Train and test splits
 
 data = torch.tensor(encode(text), dtype=torch.long)
-
 n = int(0.9*len(data)) # first 90% will be train, rest val
 
 # n = int(len(data)) # first 90% will be train, rest val
+
+input_text = "Who are you?"
+input_data = torch.tensor(encode(input_text), dtype=torch.long)
+
 train_data = data[:n]
 val_data = data[n:]
 input_data = """
@@ -227,7 +230,6 @@ def main():
         if model_path:
             print(colors.BLUE + f"Loading model from {model_path}" + colors.RESET)
             # Load the selected model
-
             # Load the entire model
             model = torch.load(model_path)
             m = model.to(device)
