@@ -11,6 +11,6 @@ if [ -z "$user_command" ]; then
 fi
 
 # Run the command provided by the user
-eval "git add ."
-eval "git commit -m \"$user_command\""
-eval "git push origin main"
+eval "sudo git add ."
+eval "sudo git commit -m \"$user_command\""
+eval "sudo git push origin main"
