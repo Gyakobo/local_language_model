@@ -7,7 +7,7 @@ print(f"Using the {device}")
 
 # Load and preprocess data
 data = ""
-with open('./input.txt', 'r', encoding='utf-8') as f:
+with open('./scripts/sample.txt', 'r', encoding='utf-8') as f:
     data = f.read()
 
 # Tokenization
