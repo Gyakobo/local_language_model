@@ -199,7 +199,7 @@ class GPTLanguageModel(nn.Module):
 * optimizer (torch.optim.AdamW) - mayhaps most important aspect
 '''
 
-model = None 
+# model = None 
 
 def main():
     choice = input("Would you like to load a pretrained model([y]/n): ")
@@ -276,7 +276,7 @@ def main():
         print(decode(m.generate(context, max_new_tokens=500)[0].tolist()))
         #open('more.txt', 'w').write(decode(m.generate(context, max_new_tokens=10000)[0].tolist()))
 
-main()
+# main()
 
 
 
