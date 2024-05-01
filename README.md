@@ -5,7 +5,7 @@
 
 > Note: Nvidia with the <span style="color:yellow">CUDA drivers</span> just don't work well with Linux, thus I'd be moving towards to AMD on my laptop for better results. So far also a dissapointment. 
 
-> In the end what really helped me out was this command:
+> In the end what actually helped me out was this command:
 ```bash
 # Upgrade torch from 1.12 to 1.13
 sudo pip3 install torch==1.13.0
