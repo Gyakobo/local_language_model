@@ -65,7 +65,7 @@ conda install pytorch torchvision torchaudio cudatoolkit -c pytorch
 
    1. After all that installations you need to cross-check whether CUDA is available. CUDA is a parallel computing platform and application programming interface (API) model created by Nvidia. In order for torch.cuda.is_available() to return True, you need to meet the following requirements:
 
-      * **Nvidia GPU:** You need to have a Nvidia GPU installed on your system.
+      * **Nvidia GPU:** You need to have an Nvidia GPU installed on your system with preferably the latest drivers.
       * **CUDA Toolkit:** You need to have the CUDA Toolkit installed on your system. This includes CUDA drivers and the CUDA runtime library.
       * **PyTorch with CUDA support:** You need to have PyTorch installed with CUDA support. You can typically install the appropriate version of PyTorch using pip or conda, ensuring it matches the CUDA version installed on your system.
  
