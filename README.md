@@ -105,5 +105,7 @@ Password for 'https://USERNAME@github.com': <PASSWORD>
 * Another option would be to make this server update it's language model every time it gets a new input. Granted my humble PC gear isn't the best, I wager all the updates would be conducted once every 24 hours.
 * The only issue perhaps would be the networking/IT part of the project.
 
+> Update: Due to a friend's contribution, I surmise I could obtain a server.
+
 ## License
 MIT 
