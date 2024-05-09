@@ -11,7 +11,7 @@
 sudo pip3 install torch==1.13.0
 ```
 
-## Installing and setting up the Anaconda environment locally. 
+## Installing and setting up the Anaconda environment. 
 Using <span style="color:yellow">wget</span> <span style="color:red">*(You might want to try it with 'sudo')*</span>:
 ```bash
 wget https://repo.anaconda.com/archive/Anaconda3-2024.02-1-Linux-x86_64.sh 
