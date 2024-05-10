@@ -19,7 +19,7 @@ chmod +x Anaconda3-2021.11-Linux-x86_64.sh
 ./Anaconda3-2021.11-Linux-x86_64.sh
 ```
 
-Using <span style="color:yellow">curl</span> <span style="color:red">*(You might want to try it with 'sudo')*</span>:
+Using <span style="color:yellow">curl</span> <span style="color:red">*(You might want to try it with 'sudo' though)*</span>:
 ```bash
 curl -O https://repo.anaconda.com/archive/Anaconda3-2024.02-1-Linux-x86_64.sh 
 chmod +x Anaconda3-2021.11-Linux-x86_64.sh
