@@ -1,9 +1,15 @@
 import torch
+import pickle 
 from transformers import GPT2Model, GPT2Tokenizer, GPT2LMHeadModel
 from main import *
 
 # Path to your pretrained model
-# model_path = "./models/shakespeare_model.pth"
+model_path = "./models/shakespeare_model.pth"
+
+# 1: Save the BigramLanguageModel
+# with open(model_path, 'rb') as f:
+#    bigram_model = pickle.load(f)
+
 # Load the model state_dict
 # model_state_dict = torch.load(model_path)
 # Create an instance of GPT2Model

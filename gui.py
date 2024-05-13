@@ -1,5 +1,6 @@
 import os
 
+
 # ANSI escape codes for different colors
 class colors:
     RED = '\033[91m'
