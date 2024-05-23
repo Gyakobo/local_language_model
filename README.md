@@ -54,7 +54,7 @@ conda env list                      # Lists all the env(s)
 conda remove --name ENV_NAME --all  # Removes the select env
 ```
 
-3. **Install PyTorch**: Once the environment is activated, you can install PyTorch using the conda install command. You should specify the appropriate version of PyTorch depending on your requirements. For example, to install PyTorch with CUDA support for GPU acceleration:
+3. **Install PyTorch**: Once the environment is fully activated, you can install PyTorch using the conda install command. You should specify the appropriate version of PyTorch depending on your requirements. For example, to install PyTorch with CUDA support for GPU acceleration:
 
 ```bash
 conda install pytorch torchvision torchaudio cudatoolkit -c pytorch 
