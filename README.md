@@ -1,6 +1,6 @@
 # Making a GPT (Generative Pretrained Transformer)
 
-Author: (Andrew Gyakobo)[https://github.com/Gyakobo]
+Author: [Andrew Gyakobo](https://github.com/Gyakobo)
 
 > In this project we'll basically try to model a character sequence of words. This work was mostly if not full inspired by the following publication [website](https://arxiv.org/pdf/1706.03762.pdf)
 
