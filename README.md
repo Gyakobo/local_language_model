@@ -9,7 +9,7 @@
 
 Author: [Andrew Gyakobo](https://github.com/Gyakobo)
 
-This project is meant to a sample transformer model locally based on textual input.
+This project is meant to a sample [transformer](https://pypi.org/project/transformers/) model locally based on textual input using the Tensorflow and PyTorch libraries.
 
 > In this project we'll basically try to model a character sequence of words. This work was mostly if not full inspired by the following publication [website](https://arxiv.org/pdf/1706.03762.pdf)
 
