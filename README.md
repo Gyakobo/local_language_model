@@ -14,11 +14,10 @@ This project is meant to generate a sample [transformer](https://pypi.org/projec
 >[!NOTE]
 > In this project we'll basically try to model a character sequence of words. This work was mostly if not full inspired by the following publication [website](https://arxiv.org/pdf/1706.03762.pdf)
 
-> It is most convenient if the following program is run using a GPU via conda Pytorch. I personally am running an EVGA 3070 Ti *(Needless to say, by the time you, my dear keen reader, are reading this this GPU might have been discontinued given that EVGA halted its GPU production)*.
+>[!WARNING]
+> It is most convenient if the following program is run using a GPU via conda Pytorch. I personally am running an EVGA 3070 Ti *(Needless to say, by the time you, my dear keen reader, are reading this this GPU might have been discontinued given that EVGA halted its GPU production)*. Remember, this project is run and rendered locally on your machine, hence you have to have a decent PC to run this!
 
-> Note: Nvidia with the <span style="color:yellow">CUDA drivers</span> just don't work well with Linux, thus I'd be moving towards to AMD on my laptop for better results. So far also a dissapointment. 
-
-> In the end what actually helped me out was this command:
+> After so many long hours, in the end what actually helped me out was this following command:
 
 ```bash
 # Upgrade torch from 1.12 to 1.13
