@@ -104,7 +104,10 @@ conda install pytorch torchvision torchaudio cudatoolkit -c pytorch
    ```bash
    nvcc --version
    ```
-> Note to everyone programming and facing the password login issue with git:
+
+>[!Note] 
+>To everyone programming and facing the password login issue with git:
+
 ```bash
 $ git config credential.helper store
 $ git push https://github.com/owner/repo.git
@@ -113,12 +116,15 @@ Username for 'https://github.com': <USERNAME>
 Password for 'https://USERNAME@github.com': <PASSWORD>
 ```
 
-> Note: Major update: This project shall be put on a Python Flask server and shared online
+>[!Note] 
+>Major update: This project shall be put on a Python Flask server and shared online
+
 * Ideally it should be a server which should be able to handle API requests to other local servers. This is done in order to keep the proprietary nature of the project and for security reasons just in case a server gets compromised
 * Another option would be to make this server update it's language model every time it gets a new input. Granted my humble PC gear isn't the best, I wager all the updates would be conducted once every 24 hours.
 * The only issue perhaps would be the networking/IT part of the project.
 
-> Update: Due to a friend's contribution, I surmise I could obtain a server.
+>[!Update]
+>Due to a "friend's contribution", I surmise I could obtain a server.
 
 ## License
 MIT 
