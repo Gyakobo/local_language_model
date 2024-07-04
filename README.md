@@ -6,6 +6,7 @@
 ![image](https://img.shields.io/badge/TensorFlow-FF6F00?style=for-the-badge&logo=TensorFlow&logoColor=white)
 ![image](https://img.shields.io/badge/PyTorch-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white)
 ![image](https://img.shields.io/badge/ChatGPT-74aa9c?style=for-the-badge&logo=openai&logoColor=white)
+![image](https://img.shields.io/badge/windows%20terminal-4D4D4D?style=for-the-badge&logo=windows%20terminal&logoColor=white)
 
 Author: [Andrew Gyakobo](https://github.com/Gyakobo)
 
@@ -122,9 +123,6 @@ Password for 'https://USERNAME@github.com': <PASSWORD>
 * Ideally it should be a server which should be able to handle API requests to other local servers. This is done in order to keep the proprietary nature of the project and for security reasons just in case a server gets compromised
 * Another option would be to make this server update it's language model every time it gets a new input. Granted my humble PC gear isn't the best, I wager all the updates would be conducted once every 24 hours.
 * The only issue perhaps would be the networking/IT part of the project.
-
->[!Update]
->Due to a "friend's contribution", I surmise I could obtain a server.
 
 ## License
 MIT 
