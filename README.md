@@ -62,7 +62,7 @@ conda create -n myenv python=3.8
 conda activate myenv 
 ```
 
->[!Note] 
+>[!NOTE] 
 >You can delete a virtual environment with the following command:
 ```bash 
 conda env list                      # Lists all the env(s) 
@@ -102,7 +102,9 @@ conda install pytorch torchvision torchaudio cudatoolkit -c pytorch
    ```bash
    sudo apt-get install nvidia-cuda-toolkit
    ```
-   > Note: To check the CUDA version run this command:
+   >[!Note]
+   >To check the CUDA version run this command:
+   
    ```bash
    nvcc --version
    ```
