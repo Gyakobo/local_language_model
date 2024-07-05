@@ -62,7 +62,8 @@ conda create -n myenv python=3.8
 conda activate myenv 
 ```
 
-> Note: You can delete a virtual environment with the following command:
+>[!Note] 
+>You can delete a virtual environment with the following command:
 ```bash 
 conda env list                      # Lists all the env(s) 
 conda remove --name ENV_NAME --all  # Removes the select env
